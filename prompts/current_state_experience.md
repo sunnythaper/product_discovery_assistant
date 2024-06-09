@@ -15,4 +15,5 @@
     - Occasional Users are deterred by a confusing interface and excessive ads. Although their importance is low, simplifying the interface and reducing ads can increase their engagement and potentially convert them into more frequent users.
     - Power Users are hindered by a lack of advanced features and limited customization options. Addressing these high-priority concerns will sustain their engagement and support the product's growth and innovation.
   - Do not output warnings, notes, or any additional commentary — just the properly formatted current-state experience statement.
+    - Here is an example of what NOT to output: "Here is the current-state experience statement:"
   - Ensure that the output is in third-person, referring directly to each user segment by name, and present tense.
