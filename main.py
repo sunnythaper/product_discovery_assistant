@@ -7,8 +7,7 @@ def app() -> None:
     llm = modules.LLM(config)
     survey = modules.Survey(config, llm)
     discovery = modules.Discovery(config, survey.results, llm)
-    report = discovery.report(
-        ['strategic_alignment', 'user_need_statement', 'current_state_experience'])
+    report = discovery.report('problem_definition')
     print(report)
 
 
