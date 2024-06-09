@@ -2,6 +2,10 @@ from pydantic import BaseModel
 
 
 class Survey(BaseModel):
-    user: str
-    need: str
-    strategic_goal: str
+    user_need: str
+    users_affected: str
+    user_current_solution: str
+    strategy_applicability: str
+    validation: str
+    assumptions: str
+    knowledge_gaps: str
