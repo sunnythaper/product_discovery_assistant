@@ -11,9 +11,9 @@ class Survey:
         responses = []
 
         for question in questions.split('\n'):
-            response = input(f'{question}\n')
+            answer = input(f'{question}\n')
             responses.append(models.Response(
-                question=question, answer=response))
+                question=question, answer=answer))
 
         return models.Survey(responses=responses)
 

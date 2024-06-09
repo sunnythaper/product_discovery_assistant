@@ -7,8 +7,8 @@ class Discovery:
         self.config = config
         self.survey = survey
 
-    def user_need_statement(self):
-        stream = self._prompt_llm(self._get_prompt('user_need_statement'))
+    def analyze(self, method: str):
+        stream = self._prompt_llm(self._get_prompt(method))
 
         for chunk in stream:
             print(chunk['message']['content'], end='', flush=True)
