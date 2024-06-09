@@ -5,6 +5,7 @@ class Survey:
     def __init__(self, config: models.Config, template: str = 'default'):
         self.config = config
         self.template = template
+        self.results = self.conduct()
 
     def conduct(self):
         questions = self._get_survey()
