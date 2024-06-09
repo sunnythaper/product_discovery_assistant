@@ -2,7 +2,7 @@ import models
 import modules
 
 
-def app():
+def app() -> None:
     config = models.Config()
     survey = modules.Survey(config)
     discovery = modules.Discovery(config, survey.results)
