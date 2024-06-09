@@ -15,3 +15,4 @@
     - **As a** frequent shopper **when I** visit the site **I want to** have a personalized homepage **so I can** quickly access my favorite products.
     - **As a** returning visitor **when I** log in **I want to** see my past orders and recommendations **So I can** easily reorder or explore new products.
   - Do not output warnings, notes, or any additional commentary — just the properly formatted user need statement.
+  - Ensure that the output is in first-person and present tense.

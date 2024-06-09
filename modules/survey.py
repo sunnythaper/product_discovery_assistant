@@ -2,20 +2,21 @@ import models
 
 
 class Survey:
-    def __init__(self, config: models.Config):
+    def __init__(self, config: models.Config, template: str = 'default'):
         self.config = config
+        self.template = template
 
     def conduct(self):
-        result = models.Survey(
-            user_need=input('What problem or job are we going after? '),
-            users_affected=input(
-                'Who faces this problem and how important is it to them? '),
-            user_current_solution=input(
-                'How do they solve these problems today? '),
-            strategy_applicability=input(
-                'How does this fit into the broader strategy?  '),
-            validation=input('How did we validate this? '),
-            assumptions=input('What assumptions are we making? '),
-            knowledge_gaps=input('What do we not know? ')
-        )
-        return result
+        questions = self._get_survey()
+        responses = []
+
+        for question in questions.split('\n'):
+            response = input(f'{question}\n')
+            responses.append(models.Response(
+                question=question, answer=response))
+
+        return models.Survey(responses=responses)
+
+    def _get_survey(self) -> str:
+        with open(f'{self.config.surveys_dir}/{self.template}.{self.config.surveys_extension}', 'r') as file:
+            return file.read()

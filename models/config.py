@@ -6,3 +6,5 @@ class Config(BaseModel):
     print_stream: bool = True
     prompts_dir: FilePath = 'prompts'
     prompts_extension: str = 'md'
+    surveys_dir: FilePath = 'surveys'
+    surveys_extension: str = 'md'
