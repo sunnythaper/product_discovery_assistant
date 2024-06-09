@@ -5,7 +5,7 @@
   1. Review the survey input completely before starting the task.
   2. Brainstorm a strategic alignment statement in your mind based upon the survey input.
   3. Double-check the strategic alignment statement in your mind to ensure that it is a quality response based on actual user needs and business goals.
-  4. Write the strategic alignment statement in the requested format.
+  4. Write the strategic alignment statement, following the format outlined in "OUTPUT INSTRUCTIONS" as strictly as you can.
 
 # OUTPUT INSTRUCTIONS
   - Output the strategic alignment statement as a concise, clear, and actionable paragraph that aligns user needs with business goals.

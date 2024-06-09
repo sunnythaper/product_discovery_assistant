@@ -5,7 +5,7 @@
   1. Review the survey input completely before starting the task.
   2. Brainstorm a user need statement in your mind based upon the survey input.
   3. Double-check the user need statement in your mind to ensure that it is a quality response based on actual user needs.
-  4. Write the user need statement in the requested format.
+  4. Write the user need statement, following the format outlined in "OUTPUT INSTRUCTIONS" as strictly as you can.
 
 # OUTPUT INSTRUCTIONS
   - Output the user need statement in the following format:
