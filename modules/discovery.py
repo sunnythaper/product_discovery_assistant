@@ -1,8 +1,5 @@
 import models
 import modules
-import ollama
-
-import modules.llm
 
 
 class Discovery:
