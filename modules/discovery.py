@@ -7,15 +7,16 @@ class Discovery:
         self.config = config
         self.survey = survey
 
-    def analyze(self, method: str):
-        stream = self._prompt_llm(self._get_prompt(method))
+    def report(self, methods: list[str]) -> str:
+        report = []
+        for method in methods:
+            report.append(method.replace('_', ' ').title())
+            report.append(self.analyze(method))
+        return '\n\n'.join(report)
 
-        if self.config.print_stream is True:
-            for chunk in stream:
-                print(chunk['message']['content'], end='', flush=True)
-            print('\n')
-        else:
-            print(stream['message']['content'])
+    def analyze(self, method: str) -> str:
+        response = self._prompt_llm(self._get_prompt(method))
+        return str(response['message']['content'])
 
     def _get_prompt(self, name: str) -> str:
         with open(f'{self.config.prompts_dir}/{name}.{self.config.prompts_extension}', 'r') as file:
