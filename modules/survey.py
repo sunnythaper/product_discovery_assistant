@@ -25,7 +25,7 @@ class Survey:
     def _ask_questions(self, questions: str) -> list[models.Response]:
         responses = []
         for question in questions.split('\n'):
-            answer = input(f'{question}\n')
+            answer = input(f'\033[1;34m{question}\033[0m\n')
             responses.append(models.Response(
                 question=question, answer=answer))
         return responses
