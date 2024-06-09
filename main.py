@@ -5,9 +5,10 @@ import modules
 def app() -> None:
     config = models.Config()
     llm = modules.LLM(config)
-    survey = modules.Survey(config, llm, 'daily_standup')
+    template = 'daily_standup'
+    survey = modules.Survey(config, llm, template)
     discovery = modules.Discovery(config, survey.results, llm)
-    report = discovery.report('daily_standup')
+    report = discovery.report(template)
     print(report)
 
 

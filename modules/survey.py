@@ -2,7 +2,7 @@ import models
 
 
 class Survey:
-    def __init__(self, config: models.Config, llm: object, template: str = 'default'):
+    def __init__(self, config: models.Config, llm: object, template: str):
         self.config = config
         self.template = template
         self.llm = llm
