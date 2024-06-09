@@ -10,8 +10,12 @@ class Discovery:
     def analyze(self, method: str):
         stream = self._prompt_llm(self._get_prompt(method))
 
-        for chunk in stream:
-            print(chunk['message']['content'], end='', flush=True)
+        if self.config.print_stream is True:
+            for chunk in stream:
+                print(chunk['message']['content'], end='', flush=True)
+            print('\n')
+        else:
+            print(stream['message']['content'])
 
     def _get_prompt(self, name: str) -> str:
         with open(f'{self.config.prompts_dir}/{name}.{self.config.prompts_extension}', 'r') as file:

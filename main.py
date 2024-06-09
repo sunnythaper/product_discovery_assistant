@@ -7,7 +7,6 @@ def app():
     survey = modules.Survey(config).conduct()
     discovery = modules.Discovery(config, survey)
     discovery.analyze('user_need_statement')
-    print('\n')
     discovery.analyze('strategic_alignment')
 
 

@@ -15,3 +15,4 @@
     - Enhancing cybersecurity measures aligns with the "Trust & Security" opportunity, safeguarding user data, bolstering our reliability, and increasing customer trust.
   - Do not output warnings, notes, or any additional commentary — just the properly formatted strategic alignment statement.
   - Ensure that the output is in first-person as a team (we, us, our) and present tense.
+  - If the input provided references goals in quotes, ensure that the output includes those goals verbatim.
