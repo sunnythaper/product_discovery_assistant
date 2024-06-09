@@ -2,9 +2,10 @@ import models
 
 
 class Survey:
-    def __init__(self, config: models.Config, template: str = 'default'):
+    def __init__(self, config: models.Config, llm: object, template: str = 'default'):
         self.config = config
         self.template = template
+        self.llm = llm
         self.results = self.conduct()
 
     def conduct(self) -> models.Survey:

@@ -1,12 +1,11 @@
 import models
-import modules
 
 
 class Discovery:
-    def __init__(self, config: models.Config, survey: models.Survey):
+    def __init__(self, config: models.Config, survey: models.Survey, llm: object):
         self.config = config
         self.survey = survey
-        self.llm = modules.LLM(self.config)
+        self.llm = llm
 
     def report(self, prompts: list[str]) -> str:
         report = []
