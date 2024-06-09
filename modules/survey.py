@@ -11,7 +11,12 @@ class Survey:
     def conduct(self) -> models.Survey:
         questions = self._get_survey()
         responses = self._ask_questions(questions)
-        return models.Survey(responses=responses)
+        survey = models.Survey(responses=responses)
+        additional_questions = self.llm.prompt(
+            'additional_questions', survey.json())
+        responses = self._ask_questions(additional_questions)
+        survey.responses.extend(responses)
+        return survey
 
     def _get_survey(self) -> str:
         with open(f'{self.config.surveys_dir}/{self.template}.{self.config.surveys_extension}', 'r') as file:

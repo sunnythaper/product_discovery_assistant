@@ -16,4 +16,4 @@ class Discovery:
 
     def analyze(self, prompt: str) -> str:
         response = self.llm.prompt(prompt, self.survey.json())
-        return response['message']['content']
+        return response
