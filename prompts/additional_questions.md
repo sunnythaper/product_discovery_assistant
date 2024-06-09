@@ -9,7 +9,8 @@
   5. Write the follow-up questions.
 
 # OUTPUT INSTRUCTIONS
-  - Output the follow-up questions as a list of 6 concise, clear, and actionable questions that help further define the intent of the original input.
+  - Your output should consist of only the 6 follow-up questions you have brainstormed.
+  - Each question should be concise, clear, and help further define the intent of the original survey input.
   - Ensure that each question is on a new line, with the total number of lines equal to 6.
   - Here are some examples of expected output:
     - How frequently do users engage with customer service?
@@ -17,8 +18,5 @@
     - What specific qualities do users appreciate about our product?
     - How long have users been utilizing our service?
   - Do not output warnings, notes, or any additional commentary — just the properly formatted follow-up questions.
-    - If you have included any additional commentary, you will need to remove it before submitting your response.
-  - Do NOT, I repeat DO NOT, include the following in the output: "Here are six follow-up questions to help further define the intent of the original input:".
-    - If you have included it, you will need to remove it before submitting your response.
+  - Do NOT, I repeat DO NOT, include the following in the output: "Here are six follow-up questions to help further define the intent of the original input:", "Here are the follow-up questions:", or anything similar.
   - Do not add any additional formatting to the questions like numbered lists, bullets, bold, italics, blank lines, etc.
-    - If you have added any additional formatting, you will need to remove it before submitting your response.
