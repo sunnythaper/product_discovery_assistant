@@ -24,8 +24,14 @@ class Survey:
 
     def _ask_questions(self, questions: str) -> list[models.Response]:
         responses = []
+        questions = self._clean_up_questions(questions)
         for question in questions.split('\n'):
             answer = input(f'\033[1;34m{question}\033[0m\n')
             responses.append(models.Response(
                 question=question, answer=answer))
         return responses
+
+    def _clean_up_questions(self, questions: str) -> str:
+        cleaned_questions = '\n'.join(line for line in questions.split(
+            '\n') if line.strip() and '?' in line)
+        return cleaned_questions
