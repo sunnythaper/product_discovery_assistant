@@ -10,3 +10,6 @@ class Config(BaseModel):
     reports_extension: str = 'md'
     surveys_dir: FilePath = 'surveys'
     surveys_extension: str = 'md'
+    survey_template: str | None = None
+    additional_questions: bool = False
+    report: bool = False

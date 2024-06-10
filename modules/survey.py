@@ -1,37 +1,35 @@
 import models
+import modules
+
+from os import listdir
+from pydantic import FilePath
 
 
 class Survey:
-    def __init__(self, config: models.Config, llm: object, template: str):
+    def __init__(self, config: models.Config = models.Config()):
         self.config = config
-        self.template = template
-        self.llm = llm
-        self.results = self.conduct()
+        self.llm = modules.LLM(config)
+        self.templates = self._get_templates(
+            self.config.surveys_dir, self.config.surveys_extension)
 
-    def conduct(self) -> models.Survey:
-        questions = self._get_survey()
-        responses = self._ask_questions(questions)
-        survey = models.Survey(responses=responses)
-        additional_questions = self.llm.prompt(
-            'additional_questions', survey.json())
-        responses = self._ask_questions(additional_questions)
-        survey.responses.extend(responses)
-        return survey
+    def set_questions(self) -> None:
+        result = []
+        with open(f'{self.config.surveys_dir}/{self.config.survey_template}.{self.config.surveys_extension}', 'r') as template:
+            for question in template:
+                result.append(models.Response(question=question))
+        self.basic_questions = models.Survey(responses=result)
 
-    def _get_survey(self) -> str:
-        with open(f'{self.config.surveys_dir}/{self.template}.{self.config.surveys_extension}', 'r') as file:
-            return file.read()
-
-    def _ask_questions(self, questions: str) -> list[models.Response]:
-        responses = []
-        questions = self._clean_up_questions(questions)
+    def set_additional_questions(self) -> None:
+        result = []
+        questions = self.llm.prompt(
+            'additional_questions', self.basic_questions.json())
         for question in questions.split('\n'):
-            answer = input(f'\033[1;34m{question}\033[0m\n')
-            responses.append(models.Response(
-                question=question, answer=answer))
-        return responses
+            if question.strip() and '?' in question:
+                result.append(models.Response(question=question))
+        self.additional_questions = models.Survey(responses=result)
 
-    def _clean_up_questions(self, questions: str) -> str:
-        cleaned_questions = '\n'.join(line for line in questions.split(
-            '\n') if line.strip() and '?' in line)
-        return cleaned_questions
+    def _get_templates(self, directory: FilePath, extension: str) -> list[str]:
+        result = []
+        for file_name in listdir(directory):
+            result.append(file_name.replace(f'.{extension}', ''))
+        return result
